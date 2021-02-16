@@ -41,7 +41,7 @@ html[data-theme="light"] {
 	--main-text-color: #333;
 	--dark-text-color: #111;
 	--link-color: #df0505;
-	
+
 	background-color: #f2f2f2;
 
 	#theme-toggle div {
@@ -185,7 +185,7 @@ pre code {
 }
 
 pre {
-	padding: .8rem;
+	padding: 0.8rem;
 	white-space: pre-wrap;
 }
 
@@ -320,12 +320,34 @@ time {
 	margin-bottom: 2rem;
 }
 
-main {
+main,
+footer {
 	display: flex;
 	max-width: 47rem;
 	margin: -5rem auto 0;
 	padding: 2.4rem 2rem;
 	flex-direction: column;
+}
+
+.github-corner:hover .octo-arm {
+	animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+	0%,
+	100% {
+		transform: rotate(0);
+	}
+
+	20%,
+	60% {
+		transform: rotate(-25deg);
+	}
+
+	40%,
+	80% {
+		transform: rotate(10deg);
+	}
 }
 
 .flex-row-between {
@@ -356,6 +378,10 @@ main {
 
 	main {
 		padding: 0 2rem;
+	}
+
+	.github-corner {
+		display: none;
 	}
 }
 
