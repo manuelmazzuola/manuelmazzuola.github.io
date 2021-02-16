@@ -1,18 +1,18 @@
-site: Asko
-url: #yoururl
-title: Asko
-description: Simple and minimalistic jekyll blogging theme.
+site: manuelmazzuola.dev
+url: https://manuelmazzuola.dev
+title: manuelmazzuola.dev
+description: Manuel Mazzuola's blog
 googlewebfonts: Fira+Code:wght@400;500;700
 twitter:
-  username: #yourusername
+  username: manuelmazzuola
   card: summary
-  creator: #yourusername
+  creator: manuelmazzuola
 author:
-  twitter: #yourusername
-  name: #yourusername
+  twitter: manuelmazzuola
+  name: manuelmazzuola
   avatar:
-  email: #youremail
-  url: #yoururl
+  email: originof@tuta.io
+  url: https://manuelmazzuola.dev
 permalink: pretty
 
 baseurl: ""

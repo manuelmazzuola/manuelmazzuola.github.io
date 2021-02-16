@@ -224,6 +224,10 @@ section {
 
 section {
 	margin-top: 5.5rem;
+
+	&.posts {
+		margin-top: 3rem;
+	}
 }
 
 blockquote {
@@ -320,14 +324,10 @@ time {
 
 main {
 	display: flex;
-	max-width: 47rem;
+	max-width: 50rem;
 	margin: -5rem auto 0;
 	padding: 2.4rem 2rem;
 	flex-direction: column;
-}
-
-.github-corner:hover .octo-arm {
-	animation: octocat-wave 560ms ease-in-out;
 }
 
 @keyframes octocat-wave {
@@ -375,10 +375,6 @@ main {
 
 	main {
 		padding: 0 2rem;
-	}
-
-	.github-corner {
-		display: none;
 	}
 }
 
