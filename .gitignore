@@ -6,3 +6,4 @@ tmp
 .jekyll-cache
 .git
 _site
+.vscode
