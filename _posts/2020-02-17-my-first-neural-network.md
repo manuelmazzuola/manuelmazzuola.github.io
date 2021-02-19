@@ -7,7 +7,7 @@ comments: true
 tags: [deep learning, neural network, classifier, colab, fastai]
 ---
 
-Recently I decided to learn deep learning and the math behind the training process and I want to summarize
+Recently I decided to learn deep learning and the math behind the training process and I'd like to summarize
 what I've learned so far by writing a simple but efficient classifier, a neural network capable to
 tell if an image contains a paint or a statue.
 
