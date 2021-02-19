@@ -34,7 +34,7 @@ html {
 
 html,
 html[data-theme="light"] {
-	--very-light-text-color: rgb(236, 237, 238);
+	--very-light-text-color: rgb(232, 236, 240);
 	--light-text-color: #bbb;
 	--medium-text-color: #555;
 	--main-text-color: #333;
@@ -175,7 +175,7 @@ pre {
 }
 
 code {
-	padding: 0.2rem;
+	padding: .2rem;
 }
 
 pre code {
@@ -185,10 +185,15 @@ pre code {
 pre {
 	padding: .8rem;
 	white-space: pre-wrap;
+	margin: .5rem 0;
 }
 
 img {
 	max-width: 100%;
+}
+
+div.image {
+	line-height: 0;
 }
 
 hr {
@@ -313,7 +318,7 @@ time {
 	color: var(--light-text-color);
 }
 
-.post > h1.title {
+.post > h1 {
 	margin-top: 1.5rem;
 	margin-bottom: 0;
 }

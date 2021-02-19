@@ -70,6 +70,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-seo-tag
   jekyll-sitemap
+  rouge
 
 BUNDLED WITH
    2.2.9
