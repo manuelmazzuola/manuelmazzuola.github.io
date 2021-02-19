@@ -118,7 +118,7 @@ The larger the batch size the more resources you need, the smaller the batch siz
 
 The `show_batch` method shows the first batch that the neural network will process.
 
-All the images are labeled with their parent folder name.
+All the images are labeled with their parent folder name (labels are not visible if you are using the dark theme).
 <div class="image"><img src="/assets/images/uffizi%20%281%29_2_0.png" /></div>
 
 # Train the architecture into a model
@@ -284,7 +284,7 @@ With a batch size value of 10 the loss decreases for each epoch as we expected, 
   </tbody>
 </table>
 
-A confusion matrix is helpful to understand where our neural network is wrong, we can print it using the following code.
+A confusion matrix is helpful to understand where our neural network is wrong, we can print it using the following code (the legend is not visible if you are using the dark theme).
 ```python
 interp = ClassificationInterpretation.from_learner(learn)
 interp.plot_confusion_matrix()
