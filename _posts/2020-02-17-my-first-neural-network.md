@@ -349,8 +349,11 @@ It's 99% sure that it is a statue 🗽
 
 # Conclusions
 
-I am amazed how with so few images it's possible to create a neural network to classify images that has never seen in the training process.
-Deep learning is not just for image recognition, it can be applied to almost all fields, including natural language processing, bioinformatics, reccommendation systems etc. etc. etc.
+I am amazed how with so few images it's possible to create a neural network to classify images that has never seen in the training process.  
+
+One of the most important things to get a good result is to have a good training dataset and a good dataset for validation, the organization of the input dataset is crucial to have a good model capable of making predictions.
+
+Deep learning is not just for image recognition, it can be applied to almost all fields, including natural language processing, bioinformatics, reccommendation systems etc.  
 I'm still just scratching the surface of deep learning, there are so many things to learn, I'll continue to study it and to write about it.
 
 
