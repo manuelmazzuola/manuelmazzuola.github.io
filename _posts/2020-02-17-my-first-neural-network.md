@@ -133,9 +133,9 @@ Here we use a convolutional neural netwok, inspired by biological processes, is 
 `resnet34` is a Residual Network, a model pre-trained with the [ImageNet](http://image-net.org/challenges/LSVRC/2013/) dataset, it consists in 34 layers.
 
 The `fine_tune(4)` call will train the neural network with our dataset 4 times, each time is called `epoch`.  
-For each epoch it tests the model with the validation dataset and prints the loss.  
+For each epoch it tests the model using the validation dataset and calculate how good the model is, its loss.
 
-Looking at the table below, the output of the training process, we can see that there is a problem, the 3rd epoch loss is bigger than the previous epoch, and the 4t epoch is bigger than the 3d epoch, our neural network is not learning correctly, and it depends on how the `batch size` interfer with the `SGD` (Stochastic Gradient Descent), that is not completely clear to me but I'll investigate more and I'll write a post about it.
+Looking at the output of the training process we notice an issue, from the 2nd epoch to the 4th epoch the loss is increasing meaning that the model is getting worse, the learning process is not working correctly, and the reason for that is the `batch size` and how it interferes with the `SGD` (Stochastic Gradient Descent), that is not completely clear to me why it happens but I'll investigate more and I'll write a post about it.
 
 <table border="1" class="dataframe">
   <thead>
