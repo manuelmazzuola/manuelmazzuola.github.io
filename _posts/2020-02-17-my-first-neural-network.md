@@ -1,8 +1,11 @@
 ---
 layout: post
+show_badges: true
+gist_id: 15ba891aa2e7316347cce1c9459fc772
+colab_id: 13hOkuKZmkkd8g9YAOvTdlAVrZxE5EDnV?usp=sharing
 title: My first neural network classifier, statue or paint?
-description: I trained a neural network to recognize paints and statues
-summary: I trained a neural network to recognize paints and statues
+description: How I trained a neural network to recognize paints and statues
+summary: How I trained a neural network to recognize paints and statues
 comments: true
 tags: [deep learning, neural network, classifier, colab, fastai]
 ---
@@ -13,11 +16,14 @@ tell if an image contains a paint or a statue.
 
 The code uses [FastAI](https://github.com/fastai/fastai) deep learning library, mainly because their motto `FASTAI: Making neural nets uncool again` and I used [Colab](https://colab.research.google.com/), a cloud Python editor with GPU support, to write the code.
 
-The mainly steps to create a model are:
-  - prepare the dataset, in my case the images
-  - split the dataset into a training set and a validation set
-  - train the architecture into a model, evaluate it and repeat
-  - test the model 
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Prepare the dataset](#prepare-the-dataset)
+- [Install the libraries](#install-the-libraries)
+- [Configure the datasets](#configure-the-datasets)
+- [Train the architecture into a model](#train-the-architecture-into-a-model)
+- [Testing the neural network](#testing-the-neural-network)
+- [Conclusions](#conclusions)
 
 # Prepare the dataset
 Last week I went to the [Uffizi Museum](https://www.uffizi.it/) and I toke some pictures of paints and statues so I decided to use them as my training data.
@@ -108,7 +114,7 @@ So if the photo of a statue is in the `statue` folder, the neural network will l
 
 The `RandomSplitter()` without any parameters will create a validation dataset using the 20% of the input dataset.
 
-```
+```python
 dls = datablock.dataloaders('/content/drive/MyDrive/uffizi', bs=5)
 dls.show_batch()
 ```
@@ -118,12 +124,12 @@ The larger the batch size the more resources you need, the smaller the batch siz
 
 The `show_batch` method shows the first batch that the neural network will process.
 
-All the images are labeled with their parent folder name (labels are not visible if you are using the dark theme).
+All the images are labeled with their parent folder name.
 <div class="image"><img src="/assets/images/uffizi%20%281%29_2_0.png" /></div>
 
 # Train the architecture into a model
 
-```
+```python
 learn = cnn_learner(dls, resnet34, metrics=error_rate)
 learn.fine_tune(4)
 ```
@@ -284,7 +290,7 @@ With a batch size value of 10 the loss decreases for each epoch as we expected, 
   </tbody>
 </table>
 
-A confusion matrix is helpful to understand where our neural network is wrong, we can print it using the following code (the legend is not visible if you are using the dark theme).
+A confusion matrix is helpful to understand where our neural network is wrong, we can print it using the following code.
 ```python
 interp = ClassificationInterpretation.from_learner(learn)
 interp.plot_confusion_matrix()
