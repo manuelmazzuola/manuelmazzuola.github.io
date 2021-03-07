@@ -9,7 +9,7 @@
 }
 
 html {
-	font-size: 13px;
+	font-size: 13.5px;
 }
 
 #theme-toggle {
@@ -35,10 +35,10 @@ html {
 html,
 html[data-theme="light"] {
 	--very-light-text-color: rgb(232, 236, 240);
-	--light-text-color: #bbb;
+	--light-text-color: #aaa;
 	--medium-text-color: #555;
 	--main-text-color: #333;
-	--dark-text-color: #111;
+	--dark-text-color: #181d24;
 	--link-color: #df0505;
 	background-color: #f2f2f2;
 
@@ -94,11 +94,11 @@ html[data-theme="dark"] {
 	--very-light-text-color: #333;
 	--light-text-color: #444;
 	--medium-text-color: #888;
-	--main-text-color: #ddd;
-	--dark-text-color: #eee;
+	--main-text-color: rgb(209, 207, 207);
+	--dark-text-color: rgb(214, 212, 212);
 	--link-color: #df0505;
 
-	background-color: #0d1117;
+	background-color: #181d24;
 
 	#theme-toggle div {
 		position: relative;
@@ -184,6 +184,11 @@ pre {
 
 pre code {
 	border: none;
+	padding: 0;
+}
+
+code {
+	padding: .2rem .4rem;
 }
 
 pre {
@@ -333,7 +338,7 @@ time {
 
 main {
 	display: flex;
-	max-width: 50rem;
+	max-width: 52rem;
 	margin: -5rem auto 0;
 	padding: 2.4rem 2rem;
 	flex-direction: column;
