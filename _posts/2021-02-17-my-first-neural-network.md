@@ -3,18 +3,17 @@ layout: post
 show_badges: true
 gist_id: 15ba891aa2e7316347cce1c9459fc772
 colab_id: 13hOkuKZmkkd8g9YAOvTdlAVrZxE5EDnV?usp=sharing
-title: My first neural network classifier, statue or paint?
-description: How I trained a neural network to recognize paints and statues
-summary: How I trained a neural network to recognize paints and statues
-comments: true
+title: My first neural network classifier, statue or painting?
+description: How I trained a neural network to recognize paintings and statues
+summary: How I trained a neural network to recognize paintings and statues
 tags: [deep learning, neural network, classifier, colab, fastai]
 ---
 
 Recently I decided to learn deep learning and the math behind the training process and I'd like to summarize
 what I've learned so far by writing a simple but efficient classifier, a neural network capable to
-tell if an image contains a paint or a statue.
+tell if an image contains a painting or a statue.
 
-The code uses [FastAI](https://github.com/fastai/fastai) deep learning library, mainly because their motto `FASTAI: Making neural nets uncool again` and I used [Colab](https://colab.research.google.com/), a cloud Python editor with GPU support, to write the code.
+The code uses [FastAI](https://github.com/fastai/fastai) deep learning library, mainly because of their motto `FASTAI: Making neural nets uncool again` and I used [Colab](https://colab.research.google.com/), a cloud Python editor with GPU support, to write the code.
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -26,9 +25,10 @@ The code uses [FastAI](https://github.com/fastai/fastai) deep learning library, 
 - [Conclusions](#conclusions)
 
 # Prepare the dataset
-Last week I went to the [Uffizi Museum](https://www.uffizi.it/) and I toke some pictures of paints and statues so I decided to use them as my training data.
+Last week I went to the [Uffizi Museum](https://www.uffizi.it/) and I toke some pictures of
+paintings and statues so I decided to use them as my training data.
 
-I removed the blurred photos and splitted them in two folders, named `paint` and `statue`, the folder name is very important because the training code uses it to label the content.
+I removed the blurred photos and split them into two folders, named `paint` and `statue`, the folder name is very important because the training code uses it to label the content.
 
 # Install the libraries
 The first lines of code are for installing libraries and importing the necessary modules.
@@ -77,7 +77,7 @@ def exif_type_tfms(fn, cls, **kwargs):
 
 def ExifImageBlock(cls=PILImage):
   """
-  if images are rotated with the EXIF orentation flag
+  if images are rotated with the EXIF orientation flag
   it must be respected when loading the images
 
   ExifImageBlock can be pickled (which is important to dump learners)
@@ -98,7 +98,7 @@ datablock = DataBlock(
     splitter=RandomSplitter()) # how to get the training dataset
 ```
 
-A DataBlock represent a list of instructions used by the network to gather the dataset, label it, transform it and how to split it into a training dataset and a validation dataset.
+A DataBlock represents a list of instructions used by the network to gather the dataset, label it, transform it, and how to split it into a training dataset and a validation dataset.
 
 The `get_image_files` function is a utility that grabs all the files in a folder, recursively.
 
@@ -110,9 +110,9 @@ A `block` represents a set of transformations to apply.
 The `ExifImageBlock` will rotate the images according to the `EXIF` metadata, and the `CategoryBlock` indicates that images are labeled with only two categories, in my case `statue` or `paint`.
 
 The `parent_label` function receives the image path as input and returns the name of the containing folder, my label.  
-So if the photo of a statue is in the `statue` folder, the neural network will learn that that photo is a `statue`.
+So if the photo of a statue is inside the `statue` folder, the neural network will learn that that photo is a `statue`.
 
-The `RandomSplitter()` without any parameters will create a validation dataset using the 20% of the input dataset.
+The `RandomSplitter()` without any parameters will create a validation dataset using 20% of the input dataset.
 
 ```python
 dls = datablock.dataloaders('/content/drive/MyDrive/uffizi', bs=5)
@@ -134,12 +134,13 @@ learn = cnn_learner(dls, resnet34, metrics=error_rate)
 learn.fine_tune(4)
 ```
 
-Here we use a convolutional neural netwok, inspired by biological processes, is the state-of-the-art in image recognition, NPL and bioinformatics.
+Here we use a convolutional neural network, inspired by biological processes, is the state-of-the-art in image recognition, NPL, and bioinformatics.
 
-`resnet34` is a Residual Network, a model pre-trained with the [ImageNet](http://image-net.org/challenges/LSVRC/2013/) dataset, it consists in 34 layers.
+`resnet34` is a Residual Network, a model pre-trained with the [ImageNet](http://image-net.org/challenges/LSVRC/2013/) dataset, it consists of 34 layers.
 
 The `fine_tune(4)` call will train the neural network with our dataset 4 times, each time is called `epoch`.  
-For each epoch it tests the model using the validation dataset and calculate how good the model is, its loss.
+For each epoch, it tests the goodness of the model using the validation dataset
+by calculating the loss value.
 
 Looking at the output of the training process we notice an issue, from the 2nd epoch to the 4th epoch the loss is increasing meaning that the model is getting worse, the learning process is not working correctly, and the reason for that is the `batch size` and how it interferes with the `SGD` (Stochastic Gradient Descent), that is not completely clear to me why it happens but I'll investigate more and I'll write a post about it.
 
@@ -225,7 +226,8 @@ learn = cnn_learner(dls, resnet34, metrics=error_rate)
 learn.fine_tune(4)
 ```
 
-With a batch size value of 10 the loss decreases for each epoch as we expected, our network is actually learning!!!
+With a batch size value of 10 the loss decreases for each epoch as we expected,
+our network is learning!!!
 
 <table border="1" class="dataframe">
   <thead>
@@ -301,7 +303,7 @@ interp.plot_confusion_matrix()
 Nothing wrong so far 🚀
 
 # Testing the neural network
-Now we create an image object using a paint that the model has never seen.  
+Now we create an image object using a painting that the model has never seen.  
 
 Using an image that the network has never seen is very important, you can't test the network with the images contained in your input dataset, it's cheating if you do that.
 
@@ -319,8 +321,9 @@ learn.predict(paint)
 
     ('paint', tensor(0), tensor([0.9841, 0.0159]))
 
-Hurray!!! The network has confidently classified the image as a paint, it's 98.41% sure about that.
-Let's try with another paint that contains a statue 🙄
+Hurray!!! The network has confidently classified the image as a painting,
+it's 98.41% sure about that.
+Let's try with another painting that contains a statue 🙄
 ```python
 paint = PILImage.create('/content/dechirico2.jpg')
 paint = PILImage(paint.resize((224, 224)))
@@ -355,11 +358,11 @@ It's 99% sure that it is a statue 🗽
 
 # Conclusions
 
-I am amazed how with so few images it's possible to create a neural network to classify images that has never seen in the training process.  
+I am amazed how with so few images it's possible to create a neural network to classify images that have never been seen by the training process.  
 
 One of the most important things to get a good result is to have a good training dataset and a good dataset for validation, the organization of the input dataset is crucial to have a good model capable of making predictions.
 
-Deep learning is not just for image recognition, it can be applied to almost all fields, including natural language processing, bioinformatics, reccommendation systems etc.  
+Deep learning is not just for image recognition, it can be applied to almost all fields, including natural language processing, bioinformatics, recommendation systems, etc.  
 I'm still just scratching the surface of deep learning, there are so many things to learn, I'll continue to study it and to write about it.
 
 
