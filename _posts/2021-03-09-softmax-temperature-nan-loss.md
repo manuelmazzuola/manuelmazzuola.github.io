@@ -32,8 +32,8 @@ to make the network adapt are infinite, but it is of no use in practice
 as the resulting loss could be [NaN](/assets/images/computer-says-nan.jpg).  
 
 A zero or a one in the softmax output means that the model is very
-confident about the prediction, __the solution is to decrease that confidence
-to produce a _softer_ probability distribution__.
+confident about the prediction, therefore __the solution is to decrease that
+confidence to produce a _softer_ probability distribution__.
 
 # Softmax temperature
 
@@ -105,6 +105,6 @@ cross_entropy(softmax(input, t=10))
     loss tensor(4.9619)
 
 The probability distribution is _softer_, the softmax function has assigned
-more probability mass to the smallest sample, from 0 to 1.0584e-05, and less
+more probability mass to the smallest sample, __from 0 to 1.0584e-05__, and less
 probability mass to the largest sample, from 1.8749e+24 to 2.6748e+02.  
-Finally, the loss has changed from NaN to a valid value.
+Finally, __the loss has changed from NaN to a valid value__.
