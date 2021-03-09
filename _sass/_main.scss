@@ -2,14 +2,13 @@
 :after,
 :before {
 	box-sizing: border-box;
-	background-color: inherit;
 	color: inherit;
 	margin: 0;
 	padding: 0;
 }
 
 html {
-	font-size: 13.5px;
+	font-size: 14px;
 }
 
 #theme-toggle {
@@ -91,8 +90,8 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-	--very-light-text-color: #333;
-	--light-text-color: #444;
+	--very-light-text-color: #444;
+	--light-text-color: #555;
 	--medium-text-color: #888;
 	--main-text-color: rgb(209, 207, 207);
 	--dark-text-color: rgb(214, 212, 212);
@@ -248,6 +247,7 @@ blockquote {
 	font-style: italic;
 	border-left: 5px solid var(--very-light-text-color);
 	padding-left: 1rem;
+	margin: 1rem 0;
 }
 
 h1 {
