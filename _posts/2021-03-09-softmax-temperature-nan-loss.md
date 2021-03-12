@@ -41,8 +41,8 @@ $$q_i = \dfrac{e^{(z_i/T)}}{\sum_j{e^{(z_j/T)}}}$$
 
 T is the temperature parameter, usually set to 1.  
 Increasing the temperature parameter will penalize bigger $$z_i$$ values
-more than the smaller $$z_i$$ values, owing to the exponential gradient,
-__which leads to a decrease in the confidence of the model__.
+more than the smaller $$z_i$$ values, owing to the amplification effect
+of the exponential, __which leads to a decrease in the confidence of the model__.
 
 ```python
 T = 1
