@@ -3,7 +3,7 @@ layout: post
 show_badges: true
 gist_id: d8dc5c346b790aaab915be6cd10057ef
 colab_id: 15XubYS4GlhkeiAjqVvo4os23Xq1dVmT6?usp=sharing
-title: Use temperature in softmax to avoid NaN loss
+title: Use temperature in softmax function to avoid NaN loss
 description: How to use temperature in softmax function with cross-entropy loss to avoid NaN
 summary: How to use temperature hyperparameter in softmax to smooth the output probability distribution and avoid unwanted NaN in cross-entropy loss
 tags: [deep learning, neural network, softmax, cross-entropy]
