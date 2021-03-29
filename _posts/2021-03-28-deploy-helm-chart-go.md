@@ -2,8 +2,8 @@
 layout: post
 show_badges: false
 title: Deploy Helm Charts on a Kubernetes cluster in Go 🐿
-description: How to deploy Helm Charts on a Kubernetes cluster using Go language
-summary:  How to deploy Helm Charts on a Kubernetes cluster using Go language
+description: How to programmatically deploy Helm Charts on a Kubernetes cluster using Go language
+summary:  How to write a simple GO application that fetches a Helm chart from a repository and install it on a Kubernetes cluster
 tags: [kubernetes, k8s, helm, golang, go, helm-chart]
 ---
 
