@@ -83,6 +83,12 @@ The Helm Go SDK allows building an authenticated client instance by using the pa
 [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 file on the filesystem.  
 
+In the following code, the `kube.GetConfig` method returns an implementation
+of the `RESTClientGetter` interface, used to obtain a REST client configuration
+based on the provided kubeconfig path.  
+The REST client configuration contains everything is needed to dialog
+with the Kubernetes server API.
+
 ```go
 restClientGetter, err := kube.GetConfig(KUBECONFIG_PATH_ON_FS)
 actionConfig := new(action.Configuration)
@@ -90,13 +96,16 @@ actionConfig := new(action.Configuration)
 err = actionConfig.Init(restClientGetter, ...)
 ```
 
-However, I can't leverage that method because I don't want to persist on the filesystem the Kubernetes credentials I got from the outside.
+However, I can't leverage that method because I don't want to persist on the filesystem
+the Kubernetes credentials I got from the outside.
 
 After having done some research and opened an [issue](https://github.com/helm/helm/issues/9473)
 on Github (I had to first search for similar issues, my bad), I finally ended up
-writing my implementation of the structure that represents the kubeconfig file:
-[https://gist.github.com/manuelmazzuola/943db0cda93dfc435912968e7cf34126](https://gist.github.com/manuelmazzuola/943db0cda93dfc435912968e7cf34126).
+writing my implementation of the `RESTClientGetter` interface,
+[restclient.go](https://gist.github.com/manuelmazzuola/943db0cda93dfc435912968e7cf34126).
 
+Then I build a `RESTClientGetter` by calling the `NewRESTClientGetter` method
+passing to it the **kubeconfig content** directly.
 ```go
 import (
   "helm.sh/helm/v3/pkg/action"
@@ -109,10 +118,11 @@ actionConfig := new(action.Configuration)
 err = actionConfig.Init(restClientGetter, ...)
 ```
 
-As you can see I pass the [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) as well to RESTClientGetter builder, that is because the SDK install
-command, which we will see later, [does not honor the given namespace](https://github.com/helm/helm/issues/9256).
-The solution I implemented is to force the namespace by overriding it in the structure
-that represents the kubeconfig file.
+Due to an [issue](https://github.com/helm/helm/issues/9256) with the Helm SDK, I override the
+[namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+value in my rest client builder.
+The install command, which you'll see later, wrongly uses the `default` namespace,
+so I fixed it by forcing the namespace to the value passed in the `NewRESTClientGetter` method.
 
 # The install intent
 After that, I instantiate a new Install action and configure it by populating
