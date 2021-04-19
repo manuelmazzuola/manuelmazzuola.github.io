@@ -291,6 +291,11 @@ b {
 	margin-bottom: 0.5rem;
 }
 
+.post > h2 {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
 .posts > h3 {
 	font-weight: 500;
 }
@@ -538,6 +543,6 @@ html[data-theme="dark"] {
 	.highlight .gi { color: #a6e22e; } /* Generic.Inserted & Diff Inserted */
 }
 /* Make line numbers unselectable: excludes line numbers from copy-paste user ops */
-.highlight .lineno {-webkit-user-select: none;-moz-user-select: none; -o-user-select: none;} 
+.highlight .lineno {-webkit-user-select: none;-moz-user-select: none; -o-user-select: none;}
 .lineno::-moz-selection {background-color: transparent;} /* Mozilla specific */
 .lineno::selection {background-color: transparent;} /* Other major browsers */
