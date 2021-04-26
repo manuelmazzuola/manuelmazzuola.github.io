@@ -1,13 +1,12 @@
 ---
 layout: post
 show_badges: false
-title: Deploy Helm Charts on a Kubernetes cluster in Go 🐿
+title: Deploy Helm Charts on a Kubernetes cluster in Go
 description: How to programmatically deploy Helm Charts on a Kubernetes cluster using Go language
 summary:  How to write a simple GO application that fetches a Helm chart from a repository and install it on a Kubernetes cluster
 tags: [kubernetes, k8s, helm, golang, go, helm-chart]
 ---
 
-- [Introduction](#introduction)
 - [What is Helm](#what-is-helm)
 - [The Helm Go SDK](#the-helm-go-sdk)
 - [Sync the Helm repository](#sync-the-helm-repository)
@@ -16,12 +15,6 @@ tags: [kubernetes, k8s, helm, golang, go, helm-chart]
 - [Locate and load the chart](#locate-and-load-the-chart)
 - [Install the chart](#install-the-chart)
 - [Conclusions](#conclusions)
-
-# Introduction
-The goal is to write a simple application that fetches a Helm Chart from a remote
-Helm repository and installs it on a Kubernetes Cluster.  
-The application takes the Chart identifier to deploy and the target K8S' credentials
-from an external source, that is the body of a POST API request or a secrets storage system.
 
 # What is Helm
 The basic idea of [Helm](https://helm.sh/) is to facilitate the deployment and manage complex
