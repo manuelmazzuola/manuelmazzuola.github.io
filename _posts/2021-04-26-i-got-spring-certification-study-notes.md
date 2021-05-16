@@ -5,6 +5,7 @@ title: I got the Spring Professional 2021 certification
 description: My Spring Professional 2021 certification study notes to keep track of everything I have learned
 summary:  My Spring Professional 2021 certification study notes to keep track everything I have learned
 tags: [spring, certification, java]
+sticky: true
 ---
 
 The company I work for has a department called _The School_ which allows employees

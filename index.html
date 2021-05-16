@@ -9,7 +9,7 @@ layout: default
             <div></div>
         </button>
     </div>
-    <p>My name is Manuel Mazzuola, I'm a software engineer, live in Lucca, IT 
+    <p>My name is Manuel Mazzuola, I'm a software engineer, live in Lucca, IT
         🇮🇹.<br>
         I work remotely, mainly with Kotlin, Java, TypeScript, Python and all their ecosystems.
         I'm into DevOps too, say Chef and Terraform.
@@ -28,9 +28,24 @@ layout: default
     <h3>BLOG</h3>
     <ul>
         {% for post in site.posts %}
+        {% if post.sticky == true %}
+        <li>
+          <span>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            📌
+          </span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% for post in site.posts %}
+        {% if post.sticky == nil %}
         <li>
             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time></li>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+        </li>
+        {% endif %}
         {% endfor %}
     </ul>
 </section>
