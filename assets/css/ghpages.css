@@ -5,10 +5,11 @@ html {
 
 body {
   font-family: "Fira Code", monospace;
+  font-size: 14px;
   background-color: #f2f2f2;
   color: #333;
   margin: 0 0 10px 0;
-  line-height: 1.75;
+  line-height: 1.5;
 }
 
 .container {
