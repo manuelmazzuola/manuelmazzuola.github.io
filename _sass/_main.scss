@@ -250,13 +250,9 @@ blockquote {
 	margin: 1rem 0;
 }
 
-h1 {
+h1, h3 {
 	color: var(--dark-text-color);
 	text-transform: uppercase;
-}
-
-h3 {
-	color: var(--medium-text-color);
 }
 
 h1,
@@ -264,7 +260,6 @@ h2,
 h3,
 h4,
 h5 {
-	font-weight: bold;
 	font-size: 1rem;
 	margin-bottom: 1.5rem;
 }
@@ -318,7 +313,6 @@ header ul {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-weight: bold;
 }
 
 .posts li time,
@@ -342,10 +336,26 @@ time {
 }
 
 main {
+  width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 801px) {
+  main {
+    width: 90%;
+  }
+}
+
+main {
 	display: flex;
-	max-width: 52rem;
+	max-width: 70rem;
 	margin: -5rem auto 0;
-	padding: 2.4rem 2rem;
+	padding: 0 0 2rem 0;
 	flex-direction: column;
 }
 
