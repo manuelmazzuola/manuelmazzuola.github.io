@@ -4,3 +4,5 @@ layout: none
 User-agent: *
 
 Disallow: /save.html
+
+Sitemap: {{ site.url }}/sitemap-index.xml
