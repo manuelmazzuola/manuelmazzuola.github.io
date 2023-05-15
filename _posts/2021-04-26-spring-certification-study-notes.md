@@ -1,13 +1,11 @@
 ---
 layout: post
 show_badges: false
-title: I got the Spring Professional 2021 certification
+title: My Spring Professional 2021 certification study notes
 description: My Spring Professional 2021 certification study notes to keep track of everything I have learned
 summary:  My Spring Professional 2021 certification study notes to keep track everything I have learned
 tags: [spring, certification, java]
-sticky: true
 ---
-<a href="https://www.credly.com/badges/2683a45a-35e1-47d4-8964-3e2779f9ca47"><img src="/assets/images/spring_cert.png" height="150" /></a>
 
 The company I work for has a department called _The School_ which allows employees
 to sign up for internal courses and obtain certifications if necessary.  
