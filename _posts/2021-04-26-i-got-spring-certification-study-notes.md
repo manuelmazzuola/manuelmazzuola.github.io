@@ -7,6 +7,7 @@ summary:  My Spring Professional 2021 certification study notes to keep track ev
 tags: [spring, certification, java]
 sticky: true
 ---
+<a href="https://www.credly.com/badges/2683a45a-35e1-47d4-8964-3e2779f9ca47"><img src="/assets/images/spring_cert.png" height="150" /></a>
 
 The company I work for has a department called _The School_ which allows employees
 to sign up for internal courses and obtain certifications if necessary.  
@@ -1285,5 +1286,3 @@ Like `@WebMvcTest` it disables the full auto-configuration, and apply only confi
 relevant to JPA.
 By default tests annotated with `@DataJpaTest` are transactional and roll back at the end of each test execution.
 It forces the use of an embedded in-memory database.
-
-<div class="image"><img src="/assets/images/spring_cert.png" height="200" /></div>
