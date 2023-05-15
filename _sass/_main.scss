@@ -295,6 +295,13 @@ b {
 	font-weight: 500;
 }
 
+.posts hr {
+  border: none;
+  color: transparent;
+  background-color: transparent;
+  height: 20px;
+}
+
 .posts ul,
 header ul {
 	list-style: none;
